@@ -1,0 +1,25 @@
+<div class="filter-bar">
+  <select [(ngModel)]="selectedFilter">
+    <option value="" disabled>Select Filter</option>
+    <option *ngFor="let option of filterOptions" [value]="option.value">
+      {{ option.label }}
+    </option>
+  </select>
+
+  <input
+    [(ngModel)]="searchTerm"
+    [placeholder]="'Search by ' + (selectedFilter || '...')"
+    (input)="applyFilter()"
+  />
+</div>
+
+<div class="card-container">
+  <div *ngFor="let repo of filteredRepositories" class="card">
+    <h3>{{ repo.name }}</h3>
+    <p>{{ repo.description || "No description provided." }}</p>
+    <a [href]="repo.html_url" target="_blank">View on GitHub</a>
+    <p><strong>Language:</strong> {{ repo.language || "Not specified" }}</p>
+    <p><strong>Stars:</strong> {{ repo.stargazers_count }}</p>
+    <p><strong>Created:</strong> {{ repo.created_at | date : "short" }}</p>
+  </div>
+</div>
