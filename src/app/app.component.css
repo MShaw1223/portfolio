@@ -1,0 +1,11 @@
+.name-title {
+  font-size: 60px;
+}
+.card {
+  text-align: centre;
+  background-color: #1e2030;
+  border: 1;
+  border-radius: 25px;
+  margin: 10px;
+  padding: 15px;
+}
