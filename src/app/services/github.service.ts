@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from '../../environments/environment';
 import { Repository } from '../card-container/repositories.model';
 
 @Injectable({
@@ -9,7 +8,7 @@ import { Repository } from '../card-container/repositories.model';
 })
 export class GithubService {
   private apiUrl = 'https://api.github.com';
-  private token = environment.githubToken;
+  private token = process.env['GH_TOKEN'];
 
   constructor(private http: HttpClient) {}
 
