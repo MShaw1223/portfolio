@@ -7,7 +7,7 @@ export const environment = {
 };
 `;
 
-fs.writeFileSync("./src/environment/environment.prod.ts", envContent, {
+fs.writeFileSync("./src/environment/environment.ts", envContent, {
   encoding: "utf8",
 });
 console.log("Environment file created.");
