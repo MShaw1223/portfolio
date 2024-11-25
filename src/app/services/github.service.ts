@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Repository } from '../card-container/repositories.model';
-import { environment } from '../../../environment';
+import { environment } from '../../environment/environment';
 
 @Injectable({
   providedIn: 'root',
