@@ -22,5 +22,6 @@
     <p><strong>Language:</strong> {{ repo.language || "Not specified" }}</p>
     <p><strong>Stars:</strong> {{ repo.stargazers_count }}</p>
     <p><strong>Created:</strong> {{ repo.created_at | date : "short" }}</p>
+    <p *ngIf="repo.name == 'portfolio'"><sub>This site :)</sub></p>
   </div>
 </div>
