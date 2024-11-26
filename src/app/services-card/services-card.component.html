@@ -1,12 +1,10 @@
 <div class="service-card">
-  <ul *ngFor="let s of services">
-    <ol class="medium">
-      {{
-        s.header
-      }}
-      <li *ngFor="let f of s.fields" class="normal">
-        {{ f }}
-      </li>
-    </ol>
-  </ul>
+  <div *ngFor="let s of services" class="topic-card">
+    <p class="medium">
+      {{ s.header }}
+    </p>
+    <li *ngFor="let f of s.fields" class="normal topic-text">
+      {{ f }}
+    </li>
+  </div>
 </div>

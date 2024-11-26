@@ -12,7 +12,7 @@ export class ServicesCardComponent {
   services: ServicesCard[] = [
     { header: 'Hosting', fields: ['Vercel', 'Github Pages', 'NeonDB'] },
     { header: 'Frameworks', fields: ['Angular', 'NextJS'] },
-    { header: 'Version Management', fields: ['Git', 'Github'] },
+    { header: 'Version Control', fields: ['Git', 'Github'] },
     { header: 'Storage', fields: ['SQLite3', 'PostgreSQL', 'MySQL'] },
   ];
 }

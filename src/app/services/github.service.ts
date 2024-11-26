@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Repository } from '../card-container/repositories.model';
 import { environment } from '../../environment/environment';
+import { dev_environment } from '../../environment/environment.dev';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GithubService {
   private apiUrl = 'https://api.github.com';
-  private token = environment.GH_TOKEN;
+  private token = environment.GH_TOKEN ?? dev_environment.GH_TOKEN;
 
   constructor(private http: HttpClient) {}
 

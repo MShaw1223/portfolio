@@ -1,3 +1,3 @@
 export const environment = {
-  GH_TOKEN: '',
+  GH_TOKEN: null,
 };

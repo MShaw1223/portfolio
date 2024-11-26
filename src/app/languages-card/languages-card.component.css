@@ -1,5 +1,5 @@
 .language-card {
   display: flex;
-  flex: auto;
+  flex-wrap: wrap;
   justify-content: center;
 }
