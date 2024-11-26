@@ -3,3 +3,10 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.language-card button {
+  appearance: none;
+  border-radius: 15px;
+  padding: 5px;
+  width: 100px;
+}

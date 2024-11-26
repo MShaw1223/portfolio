@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Repository } from '../card-container/repositories.model';
 import { GithubDataService } from '../services/github-data.service';
+import { LanguageService } from '../services/language.service';
 
 @Component({
   selector: 'app-languages-card',
@@ -12,7 +12,10 @@ import { GithubDataService } from '../services/github-data.service';
 export class LanguagesCardComponent implements OnInit {
   languages: Set<string> = new Set();
 
-  constructor(private GhDS: GithubDataService) {}
+  constructor(
+    private GhDS: GithubDataService,
+    private langService: LanguageService
+  ) {}
 
   ngOnInit(): void {
     this.GhDS.repositories$.subscribe((data) => {
@@ -20,5 +23,9 @@ export class LanguagesCardComponent implements OnInit {
         data.map((element) => element.language).filter((lang) => lang !== null)
       );
     });
+  }
+
+  selectLanguage(language: string) {
+    this.langService.setLanguage(language);
   }
 }

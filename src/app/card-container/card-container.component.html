@@ -11,6 +11,7 @@
     [placeholder]="'Search by ' + (selectedFilter || '...')"
     (input)="applyFilter()"
   />
+  <button (click)="clearFilter()">Clear Filter</button>
 </div>
 
 <div class="card-container">

@@ -1,5 +1,5 @@
 <div class="language-card">
-  <ul *ngFor="let option of languages">
-    <li>{{ option }}</li>
+  <ul *ngFor="let lang of languages">
+    <button (click)="selectLanguage(lang)" class="medium">{{ lang }}</button>
   </ul>
 </div>

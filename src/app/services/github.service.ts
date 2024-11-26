@@ -11,7 +11,7 @@ import { environment } from '../../environment/environment';
 export class GithubService {
   private apiUrl = 'https://api.github.com';
   private token = environment.GH_TOKEN;
-  // dev_environment.GH_TOKEN;
+  // private token = dev_environment.GH_TOKEN;
 
   constructor(private http: HttpClient) {}
 

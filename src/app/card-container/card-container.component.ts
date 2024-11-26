@@ -4,6 +4,7 @@ import { Repository } from './repositories.model';
 import { GithubService } from '../services/github.service';
 import { FormsModule } from '@angular/forms';
 import { GithubDataService } from '../services/github-data.service';
+import { LanguageService } from '../services/language.service';
 
 @Component({
   selector: 'app-card-container',
@@ -24,7 +25,8 @@ export class CardContainerComponent {
 
   constructor(
     private gitService: GithubService,
-    private ghDataService: GithubDataService
+    private ghDataService: GithubDataService,
+    private langService: LanguageService
   ) {}
 
   ngOnInit(): void {
@@ -35,6 +37,13 @@ export class CardContainerComponent {
         this.ghDataService.setRepositories(data);
       },
       error: (error) => console.error('Error fetching data:', error),
+    });
+    this.langService.selectedLanguage$.subscribe((language) => {
+      if (language) {
+        this.selectedFilter = 'language';
+        this.searchTerm = language;
+        this.applyFilter();
+      }
     });
   }
 
@@ -68,5 +77,10 @@ export class CardContainerComponent {
       }
       return false;
     });
+  }
+  clearFilter(): void {
+    this.selectedFilter = '';
+    this.searchTerm = '';
+    this.applyFilter();
   }
 }
