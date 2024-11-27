@@ -14,11 +14,13 @@ import { LanguageService } from '../services/language.service';
 })
 export class CardContainerComponent {
   repositories: Repository[] = [];
+  largeRepositories: Repository[] = [];
   filteredRepositories: Repository[] = [];
   filterOptions = [
+    { value: 'all', label: 'All fields' },
     { value: 'language', label: 'Language' },
-    { value: 'dateCreated', label: 'Date Created' },
     { value: 'name', label: 'Name' },
+    { value: 'date', label: 'Date Created' },
   ];
   selectedFilter = '';
   searchTerm = '';
@@ -60,7 +62,7 @@ export class CardContainerComponent {
           repo.language &&
           repo.language.toLowerCase().includes(this.searchTerm.toLowerCase())
         );
-      } else if (this.selectedFilter === 'dateCreated') {
+      } else if (this.selectedFilter === 'date') {
         const createdDate = new Date(repo.created_at);
         return (
           createdDate.toISOString().startsWith(this.searchTerm) || // Partial date match
@@ -73,6 +75,19 @@ export class CardContainerComponent {
         return (
           repo.name &&
           repo.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+        );
+      } else if (this.selectedFilter === 'all') {
+        return (
+          (repo.name &&
+            repo.name.toLowerCase().includes(this.searchTerm.toLowerCase())) ||
+          (repo.language &&
+            repo.language
+              .toLowerCase()
+              .includes(this.searchTerm.toLowerCase())) ||
+          (repo.description &&
+            repo.description
+              .toLowerCase()
+              .includes(this.searchTerm.toLowerCase()))
         );
       }
       return false;
