@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
 })
 export class ServicesCardComponent {
   services: ServicesCard[] = [
-    { header: 'Hosting', fields: ['Vercel', 'Github Pages', 'NeonDB'] },
+    { header: 'Hosting', fields: ['Vercel', 'Github Pages', 'NeonDB','Supabase'] },
     { header: 'Frameworks', fields: ['Angular', 'NextJS'] },
     { header: 'Version Control', fields: ['Git', 'Github'] },
     { header: 'Storage', fields: ['SQLite3', 'PostgreSQL', 'MySQL'] },
