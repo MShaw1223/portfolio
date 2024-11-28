@@ -21,6 +21,7 @@ export class CardContainerComponent {
     { value: 'language', label: 'Language' },
     { value: 'name', label: 'Name' },
     { value: 'date', label: 'Date Created' },
+    { value: 'edit', label: 'Last Edited' },
   ];
   selectedFilter = '';
   searchTerm = '';
@@ -57,41 +58,66 @@ export class CardContainerComponent {
     }
 
     this.filteredRepositories = this.repositories.filter((repo) => {
-      if (this.selectedFilter === 'language') {
-        return (
-          repo.language &&
-          repo.language.toLowerCase().includes(this.searchTerm.toLowerCase())
-        );
-      } else if (this.selectedFilter === 'date') {
-        const createdDate = new Date(repo.created_at);
-        return (
-          createdDate.toISOString().startsWith(this.searchTerm) || // Partial date match
-          createdDate
-            .toDateString()
-            .toLowerCase()
-            .includes(this.searchTerm.toLowerCase())
-        );
-      } else if (this.selectedFilter === 'name') {
-        return (
-          repo.name &&
-          repo.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-        );
-      } else if (this.selectedFilter === 'all') {
-        return (
-          (repo.name &&
-            repo.name.toLowerCase().includes(this.searchTerm.toLowerCase())) ||
-          (repo.language &&
-            repo.language
-              .toLowerCase()
-              .includes(this.searchTerm.toLowerCase())) ||
-          (repo.description &&
-            repo.description
-              .toLowerCase()
-              .includes(this.searchTerm.toLowerCase()))
-        );
+      switch (this.selectedFilter) {
+        case 'language':
+          return (
+            repo.language &&
+            repo.language.toLowerCase().includes(this.searchTerm.toLowerCase())
+          );
+        case 'name':
+          return (
+            repo.name &&
+            repo.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+          );
+        case 'all':
+          return (
+            (repo.name &&
+              repo.name
+                .toLowerCase()
+                .includes(this.searchTerm.toLowerCase())) ||
+            (repo.language &&
+              repo.language
+                .toLowerCase()
+                .includes(this.searchTerm.toLowerCase())) ||
+            (repo.description &&
+              repo.description
+                .toLowerCase()
+                .includes(this.searchTerm.toLowerCase()))
+          );
+        default:
+          return false;
       }
-      return false;
     });
+
+    if (this.selectedFilter === 'edit') {
+      this.filteredRepositories = [...this.repositories];
+
+      this.filteredRepositories.sort((a, b) => {
+        const dateA = new Date(a.pushed_at).getTime();
+        const dateB = new Date(b.pushed_at).getTime();
+        if (this.searchTerm.toLowerCase() === 'a') {
+          return dateA - dateB;
+        } else if (this.searchTerm.toLowerCase() === 'd') {
+          return dateB - dateA;
+        } else {
+          return 0;
+        }
+      });
+    }
+    if (this.selectedFilter === 'date') {
+      this.filteredRepositories = [...this.repositories];
+      this.filteredRepositories.sort((a, b) => {
+        const bDate = new Date(b.created_at).getTime();
+        const aDate = new Date(a.created_at).getTime();
+        if (this.searchTerm.toLowerCase() === 'a') {
+          return aDate - bDate;
+        } else if (this.searchTerm.toLowerCase() === 'd') {
+          return bDate - aDate;
+        } else {
+          return 0;
+        }
+      });
+    }
   }
   clearFilter(): void {
     this.selectedFilter = '';

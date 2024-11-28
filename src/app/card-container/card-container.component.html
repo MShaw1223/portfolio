@@ -7,13 +7,23 @@
   </select>
 
   <input
+    *ngIf="selectedFilter !== 'edit' && selectedFilter !== 'date'"
     [(ngModel)]="searchTerm"
-    [placeholder]="'Search by ' + (selectedFilter || '...')"
+    [placeholder]="'Search by ' + selectedFilter || '...'"
     (input)="applyFilter()"
   />
+  <select
+    name="ascdesc"
+    [(ngModel)]="searchTerm"
+    *ngIf="selectedFilter === 'edit' || selectedFilter === 'date'"
+    (change)="applyFilter()"
+  >
+    <option value="" disabled>Select Order</option>
+    <option value="a">Ascending</option>
+    <option value="d">Descending</option>
+  </select>
   <button (click)="clearFilter()">Clear Filter</button>
 </div>
-
 <div class="card-container">
   <div *ngFor="let repo of filteredRepositories" class="card">
     <h3>{{ repo.name }}</h3>
