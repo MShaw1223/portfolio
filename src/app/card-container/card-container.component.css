@@ -32,6 +32,14 @@
   padding: 10px;
 }
 
+select,
+input,
+button {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
 .filter-bar select,
 .filter-bar input,
 .filter-bar button {
