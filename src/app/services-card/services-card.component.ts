@@ -14,7 +14,8 @@ export class ServicesCardComponent {
     { header: 'Frameworks', fields: ['Angular', 'NextJS', 'Django'] },
     { header: 'Version Control', fields: ['Git', 'Github'] },
     { header: 'Storage', fields: ['SQLite3', 'PostgreSQL', 'MySQL'] },
-    { header: 'DevOps Tools', fields: ['Docker', 'Grafana', 'Jenkins'] },
+    { header: 'DevOps Tools', fields: ['Docker', 'Grafana', 'Jenkins', 'Ansible', 'Kubernetes'] },
     { header: 'Cloud Infrastructure', fields: ['Amazon EC2'] },
+    { header: 'Operating Systems', fields: ['Linux', 'MacOS'] },
   ];
 }
