@@ -22,7 +22,7 @@
     <option value="a">Ascending</option>
     <option value="d">Descending</option>
   </select>
-  <button (click)="clearFilter()">Clear Filter</button>
+  <button (click)="clearFilter()" class="medium">Clear Filter</button>
 </div>
 <div class="card-container">
   <div *ngFor="let repo of filteredRepositories" class="card">

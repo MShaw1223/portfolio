@@ -33,27 +33,20 @@
 }
 
 select,
-input,
-button {
+input {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
 }
 
 .filter-bar select,
-.filter-bar input,
-.filter-bar button {
+.filter-bar input {
   padding: 5px;
   font-size: 14px;
 }
-.filter-bar input,
-.filter-bar button {
-  box-shadow: none;
+
+.filter-bar select,
+.filter-bar input {
   border-radius: 15px;
-}
-.filter-bar select {
-  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>');
-}
-.filter-bar button {
-  border: 1px solid #444;
+  box-shadow: none;
 }
