@@ -11,10 +11,11 @@ import { CommonModule } from '@angular/common';
 export class ServicesCardComponent {
   services: ServicesCard[] = [
     { header: 'Hosting', fields: ['Vercel', 'Github Pages', 'NeonDB', 'Supabase'] },
-    { header: 'Frameworks', fields: ['Angular', 'NextJS', 'Django'] },
-    { header: 'Version Control', fields: ['Git', 'Github'] },
-    { header: 'Storage', fields: ['SQLite3', 'PostgreSQL', 'MySQL'] },
-    { header: 'DevOps Tools', fields: ['Docker', 'Grafana', 'Jenkins', 'Ansible', 'Kubernetes'] },
+    { header: 'Web Frameworks & Backends', fields: ['Angular', 'NextJS', 'Django'] },
+    { header: 'Version Control & Repositories', fields: ['Git', 'Github'] },
+    { header: 'Databases & Storage', fields: ['SQLite3', 'PostgreSQL', 'MySQL'] },
+    { header: 'DevOps Tools', fields: ['Docker', 'Jenkins', 'Ansible', 'Kubernetes'] },
+    { header: 'Monitoring', fields: ['Grafana',] },
     { header: 'Cloud Infrastructure', fields: ['Amazon EC2'] },
     { header: 'Operating Systems', fields: ['Linux', 'MacOS'] },
   ];
