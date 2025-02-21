@@ -1,3 +1,7 @@
+.navbar {
+  border-bottom: 1px solid grey;
+}
+
 .navbar h1 {
   font-size: 35px;
 }
