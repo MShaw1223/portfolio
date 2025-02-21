@@ -1,5 +1,5 @@
 <div class="filter-bar">
-  <select [(ngModel)]="selectedFilter">
+  <select [(ngModel)]="selectedFilter" class="medium">
     <option value="" disabled>Select Filter</option>
     <option *ngFor="let option of filterOptions" [value]="option.value">
       {{ option.label }}
