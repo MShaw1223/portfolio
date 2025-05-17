@@ -1,5 +1,5 @@
 <div class="filter-bar">
-  <select [(ngModel)]="selectedFilter">
+  <select [(ngModel)]="selectedFilter" class="medium">
     <option value="" disabled>Select Filter</option>
     <option *ngFor="let option of filterOptions" [value]="option.value">
       {{ option.label }}
@@ -22,7 +22,7 @@
     <option value="a">Ascending</option>
     <option value="d">Descending</option>
   </select>
-  <button (click)="clearFilter()">Clear Filter</button>
+  <button (click)="clearFilter()" class="medium">Clear Filter</button>
 </div>
 <div class="card-container">
   <div *ngFor="let repo of filteredRepositories" class="card">
