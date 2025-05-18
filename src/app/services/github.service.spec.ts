@@ -13,4 +13,8 @@ describe('GithubService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should return data', () => {
+    expect(service.getUserRepos('MShaw1223')).toBeTruthy();
+  });
 });

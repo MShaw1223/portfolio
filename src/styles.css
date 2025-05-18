@@ -63,22 +63,6 @@ button:hover {
   margin-bottom: -2px;
 }
 
-select {
-  min-width: 110px;
-  background: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right #1e2030;
-}
-
-select,
-input {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
-
-input {
-  font-size: 14px;
-}
-
 h1,
 h2,
 h3 {
